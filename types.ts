@@ -1,46 +1,43 @@
-export interface FAQItem {
-  id: string;
-  question: string;
-  answer: string;
-  category: 'general' | 'pagos' | 'seguridad';
-}
 
-export interface ServiceItem {
+
+export type Category = 'CONFIGS' | 'PROXIES' | 'METHODS' | 'TOOLS';
+
+export const CATEGORIES: Record<Category, string> = {
+  CONFIGS: 'Hacking & Redes',
+  PROXIES: 'Gobierno & Trámites',
+  METHODS: 'Finanzas & Cashout',
+  TOOLS: 'Varios & Físico',
+};
+
+export interface Product {
   id: string;
   title: string;
   description: string;
-  icon: any; // Lucide icon
-  iconName?: string; // String identifier for the icon
-  features?: string[];
-  category?: string;
+  price: string;
+  category: Category;
+  imageUrl?: string;
+  features: string[];
+  buyLink?: string;
 }
 
-export interface PricingPackage {
+export interface Reference {
   id: string;
-  pay: string;
-  receive: string;
-  highlight?: boolean;
-}
-
-export interface ChatMessage {
-  role: 'user' | 'model';
-  text: string;
-  timestamp: Date;
-}
-
-export interface BinInfo {
-  bin: string;
-  bank: string;
-  brand: string;
-  country: string;
-  level: string;
-  type: string;
-}
-
-export interface ReferenceItem {
-  id: string;
-  serviceId: string;
+  clientName: string;
+  serviceName: string;
   imageUrl: string;
-  description: string;
   date: string;
+}
+
+export interface Announcement {
+  id: string;
+  text: string;
+  active: boolean;
+  createdAt: string;
+}
+
+export interface DiscountCode {
+  id: string;
+  code: string;
+  description: string;
+  active: boolean;
 }
